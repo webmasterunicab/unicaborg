@@ -23,8 +23,8 @@ class InicioController extends AbstractController
     public function index(): Response
     {
         try {
-            //$cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findAll();
-            $cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findBy(['id_empleado' => 21]);
+            $cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findAll();
+            //$cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findBy(['id_empleado' => 21]);
             if ($cargaProfesor == null) {
                 $cargaProfesor = [];
             }
