@@ -4,12 +4,13 @@ namespace App\Controller\Inicio;
 
 use App\Entity\UnicabOrg\CargaProfesor;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\Comun\BaseController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 
-class InicioController extends AbstractController
+class InicioController extends BaseController
 {
     private readonly EntityManagerInterface $em;
 
@@ -23,8 +24,8 @@ class InicioController extends AbstractController
     public function index(): Response
     {
         try {
-            $cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findAll();
-            //$cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findBy(['id_empleado' => 21]);
+            //$cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findAll();
+            $cargaProfesor = $this->em->getRepository(CargaProfesor::class)->findBy(['id_empleado' => 21]);
             if ($cargaProfesor == null) {
                 $cargaProfesor = [];
             }
